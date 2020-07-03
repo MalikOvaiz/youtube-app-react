@@ -20,13 +20,21 @@ class App extends React.Component {
                 key: KEY
             }
         })
-        this.setState({videos:response.data.items});
+        this.setState({
+            videos:response.data.items,
+            selectedVideo: response.data.items[0]
+        });
     };
     
     onVideoSelect = (video) => {
         
         this.setState({selectedVideo:video});
     };
+
+    componentDidMount(){
+        this.onTermSubmit('buildings');
+    }
+    
     render(){
         return (
             <div className="ui container">
